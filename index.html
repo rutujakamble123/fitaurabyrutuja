@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitAuraByRutuja</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+   <style>
+    body{
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #fefefe;
+        color: #333;
+    }
+    section{
+        padding: 40px 80px;
+    }
+    h1,h2,h3{
+       color: #1f1f1f;
+    }
+    .hero{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 40px;
+        background: #f9f9f9;
+        padding: 60px 80px;
+    }
+    .hero-text{
+        max-width: 600px;
+    }
+    .hero-img{
+        max-width: 400px;
+    }
+    .hero a{
+        background: #4CAF50;
+        padding: 12px 20px;
+        color: white;
+        text-decoration: none;
+        border-radius: 6px;
+        margin-top: 20px;
+        display: inline-block;
+        transition: background 0.3s ease;
+    }
+    .hero a:hover{
+        background: #388e3c;
+    }
+   .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+}
+
+.feature {
+    background: #ffffff; /* light mode */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.feature h3 {
+    margin-bottom: 10px;
+}
+
+.feature {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode .features {
+    background-color: transparent; /* Optional */
+}
+
+body.dark-mode .feature {
+    background: #2c2c2c;
+    color: #f5f5f5;
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
+}
+
+body.dark-mode .feature h3 {
+    color: #ffffff;
+}
+
+body.dark-mode .feature p {
+    color: #dcdcdc;
+}
+
+    .navbar {
+  position: sticky;
+  top: 0;
+  background-color: #ffffff;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  }
+  .nav-logo span{
+    font-weight: bold;
+    font-size: 1.4rem;
+    color: #222;
+  }
+  .nav-links{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    margin: 0;
+  }
+  .nav-links li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 6px;
+  transition: background-color 0.3s, color 0.3s;
+}
+.nav-links li a:hover{
+    background-color: #f0f0f0;
+    color: #27ae60;
+}
+
+.navbar a:hover {
+  background-color: #f0f0f0;
+  color: #333;
+}
+body.dark-mode .navbar {
+  background-color: #121212;
+}
+
+body.dark-mode .nav-logo span {
+  color: #fff;
+}
+
+body.dark-mode .nav-links li a {
+  color: #ccc;
+}
+
+body.dark-mode .nav-links li a:hover {
+  background-color: #333;
+  color: #27ae60;
+}
+
+
+
+/*meals*/
+ .meal-section{
+    padding: 4rem 2rem;
+    background: #f9fafb;
+    text-align: center;
+ }
+ .meal-section h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #333;
+ }
+ .meal-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+ }
+ .meal-card{
+    background: white;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: left;
+    transition: transform 0.3s ease;
+ }
+ .meal-card:hover{
+    transform: translateY(-5px);
+ }
+ .meal-card h3{
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+ }
+
+ body.dark-mode .features,
+body.dark-mode .meal-section {
+  background-color: #222; /* Dark background */
+  color: #f5f5f5;          /* Light text */
+  border-color: #444;      /* Optional border/outline */
+}
+
+
+ /*Dashboards*/
+ .dashboard-section{
+    padding: 4rem 2rem;
+    background-color: #fff;
+    text-align: center;
+ }
+ .dashboard-section h2{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #2c3e50;
+ }
+ .dashboard-cards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+ }
+
+ .dashboard-card{
+    padding: 2rem;
+   border-radius: 1rem;
+   background: #f0f4f8;
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+   transition: transform 0.3 ease;
+ }
+
+ .dashboard-card:hover{
+    transform: scale(1.03);
+ }
+
+ .dashboard-card h3{
+    margin-bottom: 1rem;
+    color: #333;
+ }
+
+ body.dark-mode .meal-card,
+body.dark-mode .feature-box {
+  background-color: #2c2c2c;
+  color: #eee;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+
+/* Toggle Button Styling */
+#darkModeToggle {
+  margin-left: auto;
+  padding: 6px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  background-color: #e3e3e3;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+#darkModeToggle:hover {
+  background-color: #ccc;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode nav {
+  background-color: #1e1e1e;
+}
+
+body.dark-mode section {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.dark-mode .dashboard-card {
+  background-color: #222;
+  border-color: #333;
+}
+
+/* General override for all text inside dark-mode */
+body.dark-mode, 
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3, 
+body.dark-mode h4, 
+body.dark-mode h5, 
+body.dark-mode h6, 
+body.dark-mode p, 
+body.dark-mode span, 
+body.dark-mode li, 
+body.dark-mode a {
+  color: #f5f5f5 !important;
+}
+
+/* Optional: change link color in dark mode */
+body.dark-mode a {
+  color: #4dd0e1;
+}
+
+/* === CSS VARIABLES === */
+:root {
+  --bg-light: #ffffff;
+  --card-bg: #f8f8f8;
+  --text-color: #222;
+  --success-color: #27ae60;
+}
+
+body.dark-mode {
+  --bg-light: #1a1a1a;
+  --card-bg: #2c2c2c;
+  --text-color: #f9f9f9;
+  --success-color: #2ecc71;
+}
+
+/* === CALCULATOR SECTION === */
+.calculator-section {
+  padding: 60px 20px;
+  background-color: var(--bg-light);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.calculator-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+#calculator-form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+#calculator-form input,
+#calculator-form select,
+#calculator-form button {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #222;
+}
+
+#calculator-form input:focus,
+#calculator-form select:focus {
+  outline: none;
+  border-color: var(--success-color);
+}
+
+#calculator-form button {
+  background-color: var(--success-color);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#calculator-form button:hover {
+  background-color: #219150;
+}
+
+#calorie-result {
+  margin-top: 20px;
+  font-weight: bold;
+  color: var(--success-color);
+  font-size: 1.2rem;
+}
+
+/* === DARK MODE OVERRIDES === */
+body.dark-mode #calculator-form input,
+body.dark-mode #calculator-form select {
+  background-color: #2c2c2c;
+  color: #f9f9f9;
+  border-color: #444;
+}
+
+body.dark-mode #calculator-form button {
+  background-color: var(--success-color);
+  color: #fff;
+}
+
+body.dark-mode #calorie-result {
+  color: var(--success-color);
+}
+
+/* === CALCULATOR LAYOUT === */
+.calculator-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 3rem;
+  padding: 2rem;
+  background: var(--bg-light);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  margin-top: 3rem;
+}
+
+.calculator-left,
+.calculator-right {
+  padding: 1rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  color: var(--text-color);
+  animation-duration: 1s;
+  animation-fill-mode: both;
+}
+
+.calculator-left {
+  animation-name: slideInLeft;
+}
+
+.calculator-right {
+  animation-name: slideInRight;
+}
+
+/* === EXAMPLE BOX & BUTTON === */
+#example-content {
+  margin-top: 1rem;
+  display: none;
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  border-left: 4px solid var(--success-color);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+#example-content.show {
+  display: block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.btn-toggle {
+  margin-top: 1rem;
+  background-color: var(--success-color);
+  color: #fff;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn-toggle:hover {
+  background-color: #219653;
+}
+
+/* === ANIMATIONS === */
+@keyframes slideInLeft {
+  0% {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* === dashbord === */
+.dashboard-section {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.dashboard-section h2 {
+  font-size: 2rem;
+  margin-bottom: 40px;
+  color: var(--text-color);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.dashboard-card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.circular-chart-wrapper {
+  margin-top: 1rem;
+}
+
+.circular-chart {
+  display: block;
+  margin: auto;
+  max-width: 120px;
+  max-height: 120px;
+}
+
+.circular-chart .circle-bg {
+  fill: none;
+  stroke: #eee;
+  stroke-width: 3.8;
+}
+
+.circular-chart .circle {
+  fill: none;
+  stroke: #27ae60;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+}
+
+.circular-chart .percentage {
+  fill: var(--text-color);
+  font-size: 0.5em;
+  text-anchor: middle;
+}
+
+.chart-desc {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #666;
+}
+
+/* Dark Mode */
+body.dark-mode .dashboard-section {
+  background-color: #121212;
+  color: #eee;
+}
+
+body.dark-mode .dashboard-card {
+  background-color: #1f1f1f;
+}
+
+body.dark-mode .circular-chart .circle-bg {
+  stroke: #333;
+}
+
+body.dark-mode .chart-desc {
+  color: #ccc;
+}
+
+/*dynamic progressbar*/
+.burned-input {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  width: 80%;
+}
+
+.burned-btn {
+  margin-top: 10px;
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.burned-btn:hover {
+  background-color: #219653;
+}
+#burned-card h3::before {
+  content: '🔥 ';
+  color: #e74c3c;
+}
+#workouts-card h3::before {
+  content: '💪 ';
+  color: #f39c12;
+}
+
+#meals-card h3::before {
+  content: '🥗 ';
+  color: #2ecc71;
+}
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* exactly 5 cards */
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+}
+
+/*weekly summary*/
+.summary-section {
+  padding: 40px 20px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  margin-top: 2rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.chart-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+canvas#weeklyChart {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/*mood*/
+.mood-section{
+  text-align: center;
+  padding: 40px 20px;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  margin-top: 2rem;
+}
+
+.mood-options{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.mood-options button{
+  padding:  10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: #eee;
+  transition: background-color 0.3s;;
+}
+
+.mood-options button:hover{
+  background-color: #ccc;
+}
+
+
+.selected-mood {
+  font-size: 1.1rem;
+  color: var(--text-color);
+}
+
+.mood-options button{
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  color: white;
+}
+
+.mood-options button:hover{
+  transform:scale(1.05);
+}
+
+.mood-options button:nth-child(1){background-color: #2ecc71;}/* Happy */
+.mood-options button:nth-child(2){background-color: #95a5a6;}/* Neutral */
+.mood-options button:nth-child(3){background-color: #3498db;}/* sad */
+.mood-options button:nth-child(4){background-color: #e67e22;} /* stressed */
+.mood-options button:nth-child(5){background-color: #9b59b6;} /* tired */
+
+body.dark-mode .mood-section{
+  background-color: #1e1e1e;
+}
+body.dark-mode .mood-options button{
+  opacity: 0.9;
+}
+.mood-section{
+  animation: fadeIn 0.8s ease;;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/*Notes*/
+
+.journal-section {
+  padding: 40px 20px;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  text-align: center;
+}
+
+.journal-section textarea {
+  width: 90%;
+  max-width: 700px;
+  height: 150px;
+  padding: 15px;
+  font-size: 1rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  resize: vertical;
+  margin-bottom: 1rem;
+}
+
+.journal-section button {
+  padding: 10px 25px;
+  background-color: #27ae60;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.journal-section button:hover {
+  background-color: #219150;
+}
+
+#save-confirmation{
+  display: none;
+ color: #27ae60;
+ font-weight: 600;
+ font-size: 0.95rem;
+ transition: opacity 0.3s ease;
+}
+
+/* Dark Mode */
+body.dark-mode .journal-section {
+  background-color: #1a1a1a;
+  color: #fff;
+}
+
+body.dark-mode .journal-section textarea {
+  background-color: #2c2c2c;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+   </style>
+</head>
+<body class="bg-gray-100 text-gray-900">
+ 
+   <header class="bg-white shadow-md p-4">
+    <div class="container mx-auto flex justify-between item-center">
+      <!-- Dark Mode Toggle -->
+<button id="darkModeToggle">🌓 Dark Mode</button>
+
+      <nav class="navbar">
+         <div class="nav-logo">🏋️‍♀️ <span>FitAura by Rutuja</span></div>
+         <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#workouts">Workouts</a></li>
+            <li><a href="#meal-plans">Meal Plans</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#about">About</a></li>
+
+         </ul>
+      </nav>
+
+            <button class="md:hidden text-2xl">&#9776;</button>
+      
+    </div>
+
+   </header>
+
+<section class="hero">
+    <div class="hero-text">
+        <h1>Welcome To <span style="color :#4CAF50;">FitAura</span></h1>
+        <p>Your Ultimate wellness partner - set personalised goals , track every workout , and plan healthy meals , all in one seamless dashboard.</p>
+        <a href="#get-started">🚀 Start Your Journey</a>
+    </div>
+    <div class="hero-img">
+        <img src="https://img.freepik.com/free-vector/healthy-lifestyle-illustration_23-2148487056.jpg" width="100%" alt="fitness">
+    </div>
+
+</section>
+
+<section class="features">
+    <div class="feature">
+        <h3>🎯personalised Goal Setting</h3>
+        <p>Set fitness targets , track progress , and stay motivated with daily remainders.</p>
+
+    </div>
+    <div class="feature">
+        <h3>🥗 Smart Meal Planning</h3>
+        <p>Get meal suggestions for fat loss , muscle gain, or balanced maintenance.</p>
+    </div>
+    <div class="feature">
+<h3>📈 Visual Progress Dashboard</h3>
+<p>Track calories burned , Workouts completed, and trends over time.</p>
+    </div>
+
+</section>
+
+<section id="meal-palns" class="meal-section">
+    <h2>Healty Meal Plans</h2
+        <p>Choose from our curated meal plans tailored for ypur fitness goals.</p>
+        <div class="meal-grid">
+            <div class="meal-card">
+                <h3>Fat Loss</h3>
+                <ul>
+                    <li>Breakfast: Oats With Fruit</li>
+                    <li>Lunch: Mixed veg curry + roti</li>
+                    <li>Dinner: Grilled paneer + salad</li>
+                </ul>
+            </div>
+
+            <div class="meal-card">
+                <h3>Muscle Gain</h3>
+                <ul>
+                     <li>Breakfast: Peanut butter toast + banana</li>
+                    <li>Lunch: soya curry + rice</li>
+                    <li>Dinner: paneer bhurji + roti</li>
+                </ul>
+            </div>
+
+            <div class="meal-card">
+                 <h3>Balanced Diet</h3>
+                <ul>
+                     <li>Breakfast: Poha with nuts</li>
+                    <li>Lunch: Dal + rice + sabzi</li>
+                    <li>Dinner: Vegetable soup + khichdi</li>
+                </ul>
+            </div>
+        </div>
+
+</section>
+
+<section id="dashboard" class="dashboard-section">
+    <h2>Your Progress Dashboard</h2>
+    <p>Track your weekly activity and progress at a glance.</p>
+
+    <div class="dashboard-cards">
+        <div class="dashboard-card">
+            <h3>Calories Burned</h3>
+            <p>🔵 1,750 kcal this week</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Workouts Completed</h3>
+            <p>✅ 5 Sessions</p>
+        </div>
+
+        <div class="dashboard-card">
+            <h3>Water Intake</h3>
+            <p>💧 Avg. 2.3L/day</p>
+        </div>
+    </div>
+
+</section>
+
+<section id="calorie-calculator" class="calculator-wrapper">
+  <div class="calculator-left">
+    <h2>🔢 Calorie Calculator</h2>
+    <form id="calculator-form">
+      <input type="number" id="age" placeholder="Age" required>
+
+      <select id="gender">
+        <option value="" disabled selected>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+      </select>
+
+      <input type="number" id="height" placeholder="Height (cm)" required>
+      <input type="number" id="weight" placeholder="Weight (kg)" required>
+
+      <select id="activity">
+        <option value="" disabled selected>Activity Level</option>
+        <option value="1.2">Sedentary (little or no exercise)</option>
+        <option value="1.375">Lightly Active (1–3 days/week)</option>
+        <option value="1.55">Moderately Active (3–5 days/week)</option>
+        <option value="1.725">Very Active (6–7 days/week)</option>
+        <option value="1.9">Super Active (twice/day or physical job)</option>
+      </select>
+
+      <button type="submit">Calculate</button>
+    </form>
+    <div id="calorie-result"></div>
+  </div>
+
+  <div class="calculator-right">
+    <h2 class="section-title animate-bounce">🤔 Wondering How It Works?</h2>
+    <p class="slogan animate-fade">We've got you covered — understand your calories step by step!</p>
+
+    <button id="toggle-example" class="btn-toggle pulse">👉 Click to see an example</button>
+
+    <div id="example-content" class="example-hidden animate-slide-up">
+      <h3>🔢 Example Calculation:</h3>
+      <ul>
+        <li><strong>Age:</strong> 25, <strong>Weight:</strong> 55 kg, <strong>Height:</strong> 160 cm, <strong>Gender:</strong> Female</li>
+        <li><strong>BMR =</strong> 10 × 55 + 6.25 × 160 − 5 × 25 − 161 = <strong>1264 kcal</strong></li>
+        <li><strong>Calories Needed =</strong> 1264 × 1.375 = <strong>1738 kcal/day</strong></li>
+      </ul>
+      <p><strong>🎯 You need ~1738 calories/day to maintain your weight.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section id="dashboard" class="dashboard-section">
+  <h2>📊 Your Dashboard</h2>
+  <div class="dashboard-grid">
+    
+    <!-- 🔥 Calories Burned Card -->
+   <div class="dashboard-card" id="burned-card">
+  <h3>🔥 Calories Burned</h3>
+  <div class="circular-chart-wrapper">
+    <svg viewBox="0 0 36 36" class="circular-chart">
+      <path class="circle-bg"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <path class="circle"
+        id="burned-circle"
+        stroke-dasharray="0, 100"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <text x="18" y="20.35" class="percentage" id="burned-percent">0%</text>
+    </svg>
+  </div>
+  <div class="chart-desc" id="burned-desc">0 kcal burned / 0 kcal goal</div>
+  <input type="number" id="burned-input" placeholder="Enter calories burned" class="burned-input" />
+  <button onclick="updateCaloriesBurned()" class="burned-btn">Update</button>
+</div>
+
+    <!-- 💪 Workouts Completed Card -->
+   <div class="dashboard-card" id="workouts-card">
+  <h3>💪 Workouts Completed</h3>
+  <div class="circular-chart-wrapper">
+    <svg viewBox="0 0 36 36" class="circular-chart">
+      <path class="circle-bg"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <path class="circle"
+        id="workouts-circle"
+        stroke-dasharray="0, 100"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <text x="18" y="20.35" class="percentage" id="workouts-percent">0%</text>
+    </svg>
+  </div>
+  <div class="chart-desc" id="workouts-desc">0 workouts done / 5 weekly goal</div>
+  <input type="number" id="workouts-input" placeholder="Enter workouts done" class="burned-input" />
+  <button onclick="updateWorkouts()" class="burned-btn">Update</button>
+</div>
+
+
+    <!-- 💪 Meal Completed Card -->
+  <div class="dashboard-card" id="meals-card">
+  <h3>🥗 Meals Logged</h3>
+  <div class="circular-chart-wrapper">
+    <svg viewBox="0 0 36 36" class="circular-chart">
+      <path class="circle-bg"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <path class="circle"
+        id="meals-circle"
+        stroke-dasharray="0, 100"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <text x="18" y="20.35" class="percentage" id="meals-percent">0%</text>
+    </svg>
+  </div>
+  <div class="chart-desc" id="meals-desc">0 meals logged / 5 meals planned</div>
+  <input type="number" id="meals-input" placeholder="Enter meals logged" class="burned-input" />
+  <button onclick="updateMeals()" class="burned-btn">Update</button>
+</div>
+
+
+    <!-- 💪 Water intake Completed Card -->
+     <div class="dashboard-card">
+        <h3>💧Water Intake</h3>
+        <div class="circular-chart-wrapper">
+            <svg viewBox="0 0 36 36" class="circular-chart">
+                <path class="circle-bg"
+                   d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                
+                <path class="circle"
+                id="water-circle"
+                stroke-dasharray="0,100"
+                d="M18 2.0845
+                   a 15.9155 15.9155 0 0 1 0 31.831
+                    a 15.9155 15.9155 0 0 1 0 -31.831"/>
+                    
+            <text x="18" y="20.35" class="percentage" id="water-percent">0%</text>        
+            </svg>
+        </div>
+        <div class="char-desc" id="water-desc">0 glasses / 8 daily goal</div>
+        <input type="number" id="water-input" placeholder="Enter glass drank" class="burned-input">
+        <button onclick="updateWater()" class="burned-btn">Update</button>
+     </div>
+
+       <!-- 💪 sleep tracker Completed Card -->
+        <div class="dashboard-card" id="sleep-card">
+            <h3>💤 Sleep Tracker</h3>
+            <div class="circular-chart-wrapper">
+                <svg viewBox="0 0 36 36" class="circular-chart">
+                    <path class="circle-bg"
+                    d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <path class="circle"
+        id="sleep-circle"
+        stroke-dasharray="0, 100"
+        d="M18 2.0845
+           a 15.9155 15.9155 0 0 1 0 31.831
+           a 15.9155 15.9155 0 0 1 0 -31.831"/>
+           <text x="18" y="20.35" class="percentage" id="sleep-percent">0%</text>
+                </svg>
+            </div>
+            <div class="chart-desc" id="sleep-desc">0 hours / 8 goal</div>
+            <input type="number" id="sleep-input" placeholder="Enter hours slept" class="burned-input">
+            <button onclick="updateSleep()" class="burned-btn">Update</button>
+        </div>
+
+        
+  </div>
+</section>
+
+<section class="summary-section">
+  <h2>📊 Weekly Summary</h2>
+  <div class="chart-container">
+    <canvas id="weeklyChart"></canvas>
+  </div>
+</section>
+
+<section class="mood-section">
+  <h2>🧠Mood Tracker</h2>
+  <p>How are you feeling today?</p>
+  <div class="mood-options">
+    <button onclick="setMood('😊')">Happy</button>
+    <button onclick="setMood('😐')">Neutral</button>
+    <button onclick="setMood('😢')">Sad</button>
+    <button onclick="setMood('😤')">Stressed</button>
+    <button onclick="setMood('😴')">Tired</button>
+  </div>
+  <p class="selected-mood">
+    <strong>Today you feel:</strong>
+    <span id="mood-display" style="font-size: 2rem;">None</span>
+  </p>
+</section>
+
+<section class="journal-section">
+  <h2>📝 Daily Journal</h2>
+  <textarea id="journal-entry" rows="5" placeholder="Write your thoughts here..." style="width:100%; padding:10px;"></textarea>
+  <button onclick="saveJournal()" style="margin-top:10px;">Save Note</button>
+
+  <!-- Confirmation Message -->
+  <p id="save-confirmation" style="display: none; color: green; font-weight: bold; margin-top: 10px;">
+    ✅ Your note has been saved!
+  </p>
+</section>
+
+
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    toggleBtn.textContent = document.body.classList.contains('dark-mode') ? '🌞 Light Mode' : '🌓 Dark Mode';
+  });
+</script>
+
+<script>
+  document.getElementById("calculator-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const age = parseInt(document.getElementById("age").value);
+    const gender = document.getElementById("gender").value;
+    const weight = parseFloat(document.getElementById("weight").value);
+    const height = parseFloat(document.getElementById("height").value);
+    const activity = parseFloat(document.getElementById("activity").value);
+
+    let bmr;
+    if (gender === "male") {
+      bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+      bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    const calories = Math.round(bmr * activity);
+
+    document.getElementById("calorie-result").textContent = "Your daily calorie needs: " + calories + " kcal";
+  });
+</script>
+
+<script>
+  document.getElementById("toggle-example").addEventListener("click", function () {
+    const example = document.getElementById("example-content");
+    example.classList.toggle("show");
+  });
+</script>
+
+<script>
+  function animateCircularProgress(id, percent) {
+    const circle = document.querySelector(`#${id} .circle`);
+    const text = document.querySelector(`#${id} .percentage`);
+    const radius = 15.9155;
+    const circumference = 2 * Math.PI * radius;
+
+    const offset = circumference - (percent / 100) * circumference;
+    circle.style.strokeDasharray = `${(percent / 100) * circumference}, ${circumference}`;
+    text.textContent = percent + "%";
+  }
+
+  // Call animation when DOM is ready
+  document.addEventListener("DOMContentLoaded", function () {
+    animateCircularProgress("calories-burned", 70); // example 70%
+  });
+</script>
+
+<script>
+  let calorieGoal = 0; // will be set from calculator
+
+  // When calculator form is submitted
+  document.getElementById("calculator-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const age = parseInt(document.getElementById("age").value);
+    const gender = document.getElementById("gender").value;
+    const height = parseFloat(document.getElementById("height").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const activity = parseFloat(document.getElementById("activity").value);
+
+    let bmr;
+    if (gender === "male") {
+      bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+      bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    calorieGoal = Math.round(bmr * activity);
+
+    document.getElementById("calorie-result").textContent =
+      "Your daily calorie needs: " + calorieGoal + " kcal";
+
+    // Reset burned display if new goal
+    document.getElementById("burned-desc").textContent =
+      "0 kcal burned / " + calorieGoal + " kcal goal";
+    updateProgressBar(0); // reset
+  });
+
+  function updateCaloriesBurned() {
+    const burned = parseInt(document.getElementById("burned-input").value);
+    if (!calorieGoal || !burned || burned < 0) return;
+
+    const percent = Math.min((burned / calorieGoal) * 100, 100).toFixed(0);
+
+    // Update text
+    document.getElementById("burned-percent").textContent = percent + "%";
+    document.getElementById("burned-desc").textContent =
+      burned + " kcal burned / " + calorieGoal + " kcal goal";
+
+    // Animate stroke
+    updateProgressBar(percent);
+  }
+
+  function updateProgressBar(percent) {
+    const circle = document.getElementById("burned-circle");
+    circle.setAttribute("stroke-dasharray", `${percent}, 100`);
+  }
+</script>
+
+<script>
+  // Set your goals
+  const totalWorkoutsGoal = 5;
+  const totalMealsPlanned = 5;
+
+  // Update Workouts
+  function updateWorkouts() {
+    const workoutsDone = parseInt(document.getElementById("workouts-input").value);
+    if (isNaN(workoutsDone) || workoutsDone < 0) return;
+
+    if (workoutsDone > totalWorkoutsGoal) {
+      alert("You’ve exceeded the weekly goal! Please enter 5 or less.");
+      return;
+    }
+
+    const percent = Math.round((workoutsDone / totalWorkoutsGoal) * 100);
+
+    document.getElementById("workouts-percent").textContent = percent + "%";
+    document.getElementById("workouts-desc").textContent =
+      `${workoutsDone} workouts done / ${totalWorkoutsGoal} weekly goal`;
+
+    document.getElementById("workouts-circle")
+      .setAttribute("stroke-dasharray", `${percent}, 100`);
+  }
+
+  // Update Meals
+  function updateMeals() {
+    const mealsLogged = parseInt(document.getElementById("meals-input").value);
+    if (isNaN(mealsLogged) || mealsLogged < 0) return;
+
+    if (mealsLogged > totalMealsPlanned) {
+      alert("You’ve exceeded your planned meals! Please enter 5 or less.");
+      return;
+    }
+
+    const percent = Math.round((mealsLogged / totalMealsPlanned) * 100);
+
+    document.getElementById("meals-percent").textContent = percent + "%";
+    document.getElementById("meals-desc").textContent =
+      `${mealsLogged} meals logged / ${totalMealsPlanned} meals planned`;
+
+    document.getElementById("meals-circle")
+      .setAttribute("stroke-dasharray", `${percent}, 100`);
+  }
+</script>
+
+<script>
+  const totalWaterGoal = 8; // 8 glasses of water per day
+
+  function updateWater() {
+    const glasses = parseInt(document.getElementById("water-input").value);
+    if (isNaN(glasses) || glasses < 0) return;
+
+    if (glasses > totalWaterGoal) {
+      alert("That's great! But your goal is 8 glasses. Please enter 8 or fewer.");
+      return;
+    }
+
+    const percent = Math.round((glasses / totalWaterGoal) * 100);
+
+    document.getElementById("water-percent").textContent = percent + "%";
+    document.getElementById("water-desc").textContent =
+      `${glasses} glasses / ${totalWaterGoal} daily goal`;
+
+    document.getElementById("water-circle")
+      .setAttribute("stroke-dasharray", `${percent}, 100`);
+  }
+</script>
+
+<script>
+  const totalSleepGoal = 8;
+
+  function updateSleep() {
+    const hours = parseFloat(document.getElementById("sleep-input").value);
+    if (isNaN(hours) || hours < 0) return;
+
+    if (hours > totalSleepGoal) {
+      alert("Great! But the goal is 8 hours of sleep. Please enter 8 or less.");
+      return;
+    }
+
+    const percent = Math.round((hours / totalSleepGoal) * 100);
+
+    document.getElementById("sleep-percent").textContent = percent + "%";
+    document.getElementById("sleep-desc").textContent =
+      `${hours} hours / ${totalSleepGoal} goal`;
+
+    document.getElementById("sleep-circle")
+      .setAttribute("stroke-dasharray", `${percent}, 100`);
+  }
+</script>
+
+<script>
+  const ctx = document.getElementById('weeklyChart').getContext('2d');
+  const weeklyChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [
+        {
+          label: 'Calories Burned',
+          data: [300, 500, 250, 400, 600, 700, 350],
+          backgroundColor: 'rgba(39, 174, 96, 0.6)',
+          borderRadius: 8,
+        },
+        {
+          label: 'Workouts',
+          data: [1, 0, 1, 1, 0, 1, 2],
+          backgroundColor: 'rgba(52, 152, 219, 0.6)',
+          borderRadius: 8,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  function setMood(mood){
+    document.getElementById("mood-display").textContent = mood;
+    localStorage.setItem("userMood",mood);
+  }
+
+  window.addEventListener("DOMContentLoaded", () =>{
+    const saveMood = localStorage.getItem("userMood");
+    if(saveMood){
+      document.getElementById("mood-display").textContent = saveMood;
+    }
+  });
+</script>
+
+<script>
+  function saveJournal() {
+    const entry = document.getElementById("journal-entry").value;
+    if (entry.trim() !== "") {
+      localStorage.setItem("dailyJournal", entry);
+      document.getElementById("save-confirmation").style.display = "block";
+      setTimeout(() => {
+        document.getElementById("save-confirmation").style.display = "none";
+      }, 2000);
+    }
+  }
+
+  // Load saved journal entry on page load
+  window.addEventListener("DOMContentLoaded", () => {
+    const saved = localStorage.getItem("dailyJournal");
+    if (saved) {
+      document.getElementById("journal-entry").value = saved;
+    }
+  });
+</script>
+
+</body>
+</html>
